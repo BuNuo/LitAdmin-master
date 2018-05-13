@@ -6,10 +6,7 @@
 
 ### 说明
 
-　　这是一个用vuejs2.0和element-ui搭建的后台管理界面。演示地址：[http://v.ipyro.cn](http://v.ipyro.cn)
-
-> 2017-9-20日更新使用环境及组件：node v8.2.1,vue.js v2.4.4，element-ui v1.4.4
-    
+　　这是一个用vuejs2.0和element-ui搭建的后台管理界面
 
 ### 相关技术：
 
@@ -25,10 +22,6 @@
 
 
 ## Build Setup
-
-
-``` bash
-先安装node v8.2.1环境，可以用nvm安装，支持多版本切换
 
 开启一个控制台窗口
 
@@ -55,17 +48,6 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-
-### 更新日志
-> 2017-11-13
- >> 1.去掉先前在前端写的模拟数据，增加server端提供模拟数据。
- >> 2.代码优化。  
- 
- > 2017-9-20
- >> 1.主要组件升级：vue.js升级到v2.4.4，element-ui升级到v1.4.4，其它组件升级  
- >> 2.主界面左侧菜单栏修改，使用element-ui升级的导航组件支持折叠功能。  
- >> 3.其它调整。
 
 
 
