@@ -26,7 +26,7 @@
 开启一个控制台窗口
 
 #下载项目命令
-git clone https://github.com/jerry9022/LitAdmin
+git clone https://github.com/BuNuo/LitAdmin-master
 
 #定位到项目中的server目录安装服务端依赖
 npm install
