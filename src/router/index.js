@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Dashboard from '@/components/Dashboard'
-
+import _ from 'lodash'
 import BookList from '@/components/book/list'
 import BookCategoryList from '@/components/bookcategory/list'
 
@@ -89,7 +89,7 @@ let router = new Router({
 
 router.beforeEach((to, from, next) => {
   // console.log('to:' + to.path)
-  if (to.path.startsWith('/login')) {
+  if (_.startsWith(to.path, '/login')) {
     window.localStorage.removeItem('access-user')
     next()
   } else {
