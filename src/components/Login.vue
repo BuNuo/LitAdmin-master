@@ -17,6 +17,7 @@
 
 <script>
   import API from '../api/api_user';
+  import menuData from '../data/menu';
 
   export default {
     data() {
@@ -49,7 +50,8 @@
             API.login(loginParams).then(function (result) {
               that.loading = false;
               if (result && result.id) {
-                localStorage.setItem('access-user', JSON.stringify(result));
+                sessionStorage.setItem('access-user', JSON.stringify(result));
+                sessionStorage.setItem('user', JSON.stringify(menuData.menu));
 //                that.$store.commit('SET_ROUTERS', user.permissions)
 //                that.$router.addRoutes(that.$store.getters.addRouters);
 //                that.$router.options.routes = that.$store.getters.routers;

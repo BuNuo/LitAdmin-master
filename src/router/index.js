@@ -19,6 +19,30 @@ const Login = resolve => require(['@/components/Login'], resolve)
 
 Vue.use(Router)
 
+
+export default new Router({
+  routes: [
+    {
+      path: '/login',
+      name: '登录',
+      component: Login
+    },
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+      redirect: '/dashboard',
+      leaf: true, // 只有一个节点
+      menuShow: true,
+      iconCls: 'iconfont icon-home', // 图标样式class
+      children: [
+        {path: '/dashboard', component: Dashboard, name: '首页', menuShow: true, leaf: true}
+      ]
+    }
+  ]
+
+})
+
 let router = new Router({
 // mode: 'history',
   routes: [
@@ -38,56 +62,11 @@ let router = new Router({
       children: [
         {path: '/dashboard', component: Dashboard, name: '首页', menuShow: true}
       ]
-    },
-    {
-      path: '/',
-      component: Home,
-      name: '用户管理',
-      menuShow: true,
-      leaf: true, // 只有一个节点
-      iconCls: 'iconfont icon-users', // 图标样式class
-      children: [
-        {path: '/user/list', component: UserList, name: '用户列表', menuShow: true}
-      ]
-    },
-    {
-      path: '/',
-      component: Home,
-      name: '图书管理',
-      menuShow: true,
-      iconCls: 'iconfont icon-books',
-      children: [
-        {path: '/book/list', component: BookList, name: '图书列表', menuShow: true},
-        {path: '/book/category', component: BookCategoryList, name: '图书分类', menuShow: true}
-      ]
-    },
-    {
-      path: '/',
-      component: Home,
-      name: 'canvas学习',
-      menuShow: true,
-      iconCls: 'iconfont icon-books',
-      children: [
-        {path: '/canvas/list1', component: CanvasList1, name: '基本绘制', menuShow: true},
-        {path: '/canvas/list2', component: CanvasList2, name: '简单动画', menuShow: true},
-        {path: '/canvas/list3', component: CanvasList3, name: '贪吃蛇', menuShow: true}
-      ]
-    },
-    {
-      path: '/',
-      component: Home,
-      name: '设置',
-      menuShow: true,
-      iconCls: 'iconfont icon-setting1',
-      children: [
-        {path: '/user/profile', component: UserProfile, name: '个人信息', menuShow: true},
-        {path: '/user/changepwd', component: UserChangePwd, name: '修改密码', menuShow: true}
-      ]
     }
   ]
 })
 
-router.beforeEach((to, from, next) => {
+/*router.beforeEach((to, from, next) => {
   // console.log('to:' + to.path)
   if (_.startsWith(to.path, '/login')) {
     window.localStorage.removeItem('access-user')
@@ -100,6 +79,6 @@ router.beforeEach((to, from, next) => {
       next()
     }
   }
-})
+})*/
 
-export default router
+//export default router

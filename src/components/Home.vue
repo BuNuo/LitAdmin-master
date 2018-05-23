@@ -85,12 +85,20 @@
         }
         this.$router.push(url);
       })
+
+      let isLoadNodes = sessionStorage.getItem('isLoadNodes')
+      if (!isLoadNodes) {
+        let data = JSON.parse(window.sessionStorage.getItem('user'))
+        this.nodes.push(...data)
+        sessionStorage.setItem('isLoadNodes', 'true')
+      }
     },
     data () {
       return {
         defaultActiveIndex: "0",
         nickname: '',
         collapsed: false,
+        nodes: this.$router.options.routes
       }
     },
     methods: {
@@ -114,7 +122,7 @@
           that.loading = true;
           API.logout().then(function (result) {
             that.loading = false;
-            localStorage.removeItem('access-user');
+            window.sessionStorage.removeItem('access-user');
             that.$router.go('/login'); //用go刷新
           }, function (err) {
             that.loading = false;
